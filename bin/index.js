@@ -3,13 +3,14 @@
 const fse = require('fs-extra');
 const program = require('commander');
 
-// methods
-const addConfig = require('../lib/addConfig');
-
 // version
 program.version(require('../package.json').version, '-v, --version');
 
 // add config
+function addConfig() {
+  console.log('addConfig');
+}
+
 program
   .command('add config')
   .description('请选择你要添加的配置项~')
