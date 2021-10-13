@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const fse = require('fs-extra');
 const program = require('commander');
 
-
-const packageObj = fse.readJSONSync(path.resolve(__dirname, '../package.json'));
+// methods
+const addConfig = require('../lib/addConfig');
 
 // version
-program.version(packageObj.version, '-v, --version');
+program.version(require('../package.json').version, '-v, --version');
+
+// add config
+program
+  .command('add config')
+  .description('请选择你要添加的配置项~')
+  .action(() => {
+    addConfig();
+  });
