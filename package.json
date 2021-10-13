@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config",
+  "name": "@hbs/create-config",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hongbusi/eslint-config.git"
+    "url": "git+https://github.com/Hongbusi/create-config.git"
   },
   "author": "Hongbusi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hongbusi/eslint-config/issues"
+    "url": "https://github.com/Hongbusi/create-config/issues"
   },
-  "homepage": "https://github.com/Hongbusi/eslint-config#readme"
+  "homepage": "https://github.com/Hongbusi/create-config#readme"
 }
