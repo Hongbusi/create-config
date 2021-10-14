@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
+const path = require('path');
 const fse = require('fs-extra');
 const program = require('commander');
 
+const packageObj = fse.readJsonSync(path.resolve(__dirname, '../package.json'));
+
 // version
-program.version(require('../package.json').version, '-v, --version');
+program.version(packageObj.version, '-v, --version');
 
 // add config
 function addConfig() {
@@ -17,3 +20,6 @@ program
   .action(() => {
     addConfig();
   });
+
+// 解析命令行参数
+program.parse(process.argv);
