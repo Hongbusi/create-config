@@ -13,9 +13,12 @@ function addConfig() {
       choices: fse.readdirSync(path.resolve(__dirname, '../config'))
     }
   ]).then(({ configName }) => {
-    const exists = fse.pathExistsSync(configName);
-
-    exists ? overwrite(configName) : writeConfigFile(configName);
+    try {
+      const exists = fse.pathExistsSync(configName);
+      exists ? overwrite(configName) : writeConfigFile(configName);
+    } catch (error) {
+      console.log(symbols.error, chalk.red(console.error(error)));
+    }
   });
 }
 
@@ -32,10 +35,13 @@ function overwrite(configName) {
 }
 
 function writeConfigFile(configName) {
-  const configContent = fse.readFileSync(path.resolve(__dirname, `../config/${configName}`), 'utf-8');
-  fse.writeFileSync(configName, configContent);
-  console.log(symbols.success, chalk.green(`${configName} config add successful.`));
-  process.exit();
+  try {
+    fse.copySync(path.resolve(__dirname, `../config/${configName}`), configName);
+    console.log(symbols.success, chalk.green(`'${configName}' file add successful.`));
+    process.exit();
+  } catch (error) {
+    console.log(symbols.error, chalk.red(console.error(error)));
+  }
 }
 
 module.exports = addConfig;
