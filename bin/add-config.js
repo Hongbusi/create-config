@@ -4,9 +4,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const symbols = require('log-symbols');
 
-// 通过指令创建
 const configs = ['commitlint'];
-// 通过模版创建
 const configsTemplate = fse.readdirSync(resolve(__dirname, './configs-template'));
 
 function addConfig() {
@@ -19,12 +17,12 @@ function addConfig() {
     }
   ]).then(({ configName }) => {
     if (configsTemplate.includes(configName)) {
-      createTemplateConfig(configName);
+      addTemplateConfig(configName);
       return;
     }
 
     if (configs.includes(configName)) {
-      createConfigViaCommand(configName);
+      addConfigViaCommand(configName);
       return;
     }
 
@@ -34,7 +32,7 @@ function addConfig() {
   });
 }
 
-function createTemplateConfig(name) {
+function addTemplateConfig(name) {
   try {
     const exists = fse.pathExistsSync(name);
     exists ? overwrite(name) : writeConfigFile(name);
@@ -65,8 +63,16 @@ function writeConfigFile(name) {
   }
 }
 
-function createConfigViaCommand(name) {
-  console.log(name);
+function addConfigViaCommand(name) {
+  const funs = {
+    commitlint: addCommitlint,
+  };
+
+  funs[name]();
+}
+
+function addCommitlint() {
+  console.log('addCommitlint');
 }
 
 module.exports = addConfig;
