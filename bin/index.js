@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const path = require('path');
+const resolve = require('path').resolve;
 const fse = require('fs-extra');
 const program = require('commander');
 
-const addConfig = require('./addConfig');
+const addConfig = require('./add-config');
 
-const packageObj = fse.readJsonSync(path.resolve(__dirname, '../package.json'));
+const packageObj = fse.readJsonSync(resolve(__dirname, '../package.json'));
 
 // version
 program.version(packageObj.version, '-v, --version');
