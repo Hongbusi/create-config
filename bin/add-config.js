@@ -7,6 +7,9 @@ const symbols = require('log-symbols');
 const configs = ['commitlint'];
 const configsTemplate = fse.readdirSync(resolve(__dirname, './configs-template'));
 
+const addConfigByTemplate = require('./add-config-by-template');
+const addConfigByCommand = require('./add-config-by-command');
+
 function addConfig() {
   inquirer.prompt([
     {
@@ -17,12 +20,12 @@ function addConfig() {
     }
   ]).then(({ configName }) => {
     if (configsTemplate.includes(configName)) {
-      addTemplateConfig(configName);
+      addConfigByTemplate(configName);
       return;
     }
 
     if (configs.includes(configName)) {
-      addConfigViaCommand(configName);
+      addConfigByCommand(configName);
       return;
     }
 
@@ -30,49 +33,6 @@ function addConfig() {
   Please go ${chalk.green('https://github.com/Hongbusi/create-config/issues')}, submit your comments.`));
     process.exit();
   });
-}
-
-function addTemplateConfig(name) {
-  try {
-    const exists = fse.pathExistsSync(name);
-    exists ? overwrite(name) : writeConfigFile(name);
-  } catch (error) {
-    console.log(symbols.error, chalk.red(console.error(error)));
-  }
-}
-
-function overwrite(name) {
-  inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'confirm',
-      message: `The '${name}' file already exists. Do you want to overwrite it?`
-    }
-  ]).then(({ confirm }) => {
-    confirm ? writeConfigFile(name) : process.exit();
-  });
-}
-
-function writeConfigFile(name) {
-  try {
-    fse.copySync(resolve(__dirname, `./configs-template/${name}`), name);
-    console.log(symbols.success, chalk.green(`'${name}' file add successful.`));
-    process.exit();
-  } catch (error) {
-    console.log(symbols.error, chalk.red(console.error(error)));
-  }
-}
-
-function addConfigViaCommand(name) {
-  const funs = {
-    commitlint: addCommitlint,
-  };
-
-  funs[name]();
-}
-
-function addCommitlint() {
-  console.log('addCommitlint');
 }
 
 module.exports = addConfig;
