@@ -1,7 +1,7 @@
 {
   "name": "@hongbusi/create-config",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quickly create project configurations.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
