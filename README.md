@@ -19,4 +19,4 @@ create-config add
 ## Configs
 
 - [.editorconfig](./bin/configs-template/editorconfig)
-- [.gitignore](./bin/config-template/gitignore)
+- [.gitignore](./bin/configs-template/gitignore)
