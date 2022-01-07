@@ -1,6 +1,6 @@
 {
   "name": "@hongbusi/create-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quickly create project configurations.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +19,9 @@
     "url": "https://github.com/Hongbusi/create-config/issues"
   },
   "homepage": "https://github.com/Hongbusi/create-config#readme",
+  "files": [
+    "bin"
+  ],
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^8.2.0",
