@@ -7,7 +7,7 @@ function addConfigViaCommand(name) {
 }
 
 function addCommitlint() {
-  console.log('addCommitlint');
+  console.log('正在开发中...敬请期待！');
 }
 
 module.exports = addConfigViaCommand;

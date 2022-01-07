@@ -5,9 +5,16 @@ const chalk = require('chalk');
 const symbols = require('log-symbols');
 
 function addConfigByTemplate(templateName) {
+  const configTemplates = {
+    editorconfig: '.editorconfig',
+    gitignore: '.gitignore'
+  }
+
+  const configName = configTemplates[templateName];
+
   try {
-    const exists = fse.pathExistsSync(templateName);
-    exists ? overwriteExistingConfigFile(templateName) : createConfigFile(templateName);
+    const exists = fse.pathExistsSync(configName);
+    exists ? overwriteExistingConfigFile(configName) : createConfigFile(configName);
   } catch (error) {
     console.log(symbols.error, chalk.red(console.error(error)));
   }
