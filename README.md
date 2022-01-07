@@ -15,3 +15,8 @@ Add config:
 ``` bash
 create-config add
 ```
+
+## Configs
+
+- [.editorconfig](./bin/configs-template/editorconfig)
+- [.gitignore](./bin/config-template/gitignore)
