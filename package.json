@@ -1,13 +1,13 @@
 {
   "name": "@hongbusi/create-config",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Quickly create project configurations.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
   "bin": {
-    "create-config": "./bin/index.js"
+    "create-config": "./bin/create-config.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/Hongbusi/create-config#readme",
   "files": [
-    "bin"
+    "bin",
+    "src"
   ],
   "dependencies": {
     "chalk": "^4.1.2",

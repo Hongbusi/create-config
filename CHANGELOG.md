@@ -1,3 +1,7 @@
+## v0.0.4 (2022.02.10)
+
+- [fix] Add config failed
+
 ## v0.0.3 (2022.01.07)
 
 - 修复 `.gitignore` 在 `npm publish` 丢失问题

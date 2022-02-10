@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const resolve = require('path').resolve;
 const fse = require('fs-extra');
+const resolve = require('path').resolve;
 const program = require('commander');
 
-const addConfig = require('./add-config');
+const addConfig = require('../src/add-config');
 
 const packageObj = fse.readJsonSync(resolve(__dirname, '../package.json'));
 

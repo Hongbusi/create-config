@@ -1,5 +1,5 @@
-const resolve = require('path').resolve;
 const fse = require('fs-extra');
+const resolve = require('path').resolve;
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const symbols = require('log-symbols');
