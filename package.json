@@ -2,27 +2,23 @@
   "name": "@hongbusi/create-config",
   "version": "0.0.4",
   "description": "Quickly create project configurations.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
-  },
-  "bin": {
-    "create-config": "./bin/create-config.js"
-  },
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hongbusi/create-config.git"
   },
   "author": "Hongbusi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hongbusi/create-config/issues"
-  },
-  "homepage": "https://github.com/Hongbusi/create-config#readme",
   "files": [
     "bin",
     "src"
   ],
+  "bin": {
+    "create-config": "./bin/create-config.js"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint \"**/*.{vue,ts,js,json}\" --fix"
+  },
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^8.2.0",
@@ -33,6 +29,15 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
+    "@hongbusi/eslint-config": "^0.1.2",
+    "eslint": "^8.9.0",
     "husky": "^7.0.4"
-  }
+  },
+  "eslintConfig": {
+    "extends": "@hongbusi"
+  },
+  "bugs": {
+    "url": "https://github.com/Hongbusi/create-config/issues"
+  },
+  "homepage": "https://github.com/Hongbusi/create-config#readme"
 }
